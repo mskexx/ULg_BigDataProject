@@ -13,6 +13,7 @@ Initial data consisted in the energetic values generated in the University in
  
 ## Pre-processing
 ##### \> From .xls to .csv
+##### \> Group total consumption per building
 ## Initial analysis
 ## Computing
 ## Analysis
