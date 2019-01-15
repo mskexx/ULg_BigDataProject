@@ -2,14 +2,14 @@
 Main module
 """
 import argparse, os
-from preprocess import tocsv
+from preprocess import tocsv, totals
 
 def main(arguments):
-    print("Main-module of BDP")
+    print("[START] >> Main-module of BDP <<")
     if arguments.transform:
-        t1 = 'C:\\Users\\Kexx\\Documents\\Universidad\\Master-Primero' \
-             '\\BigData\DATA'
         tocsv.transformation(arguments.path, arguments.toutput)
+    elif arguments.totals:
+        totals.totals(arguments.path, arguments.toutput)
 
 
 def parse_arguments():
@@ -22,6 +22,9 @@ def parse_arguments():
 
     parser.add_argument("-t", "--transform", type=bool, default=False,
                         nargs='?', const=True, help="Data from .xls to .csv")
+    parser.add_argument("-a", "--totals", type=bool, default=False,
+                        nargs='?', const=True, help="Generate the totals of "
+                                                    "the buildings in one file")
     parser.add_argument("-to", "--toutput", type=str, default=None,
                         help="Path of the transformed dataset, .xls to .csv")
 

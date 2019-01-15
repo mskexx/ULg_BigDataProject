@@ -67,36 +67,3 @@ def to_csv(in_path, out_path, folders):
             new_name = file.replace(".xls", ".csv")
             data_xls.to_csv(os.path.join(npath, new_name), encoding='utf-8',
                             index=False)
-
-
-def totals():
-    '''
-    Create the total grouped by building from a folder monthly structure
-    '''
-    path = "./DATA_CSV/"
-    final_path = "./TOTAL_CSV/"
-    total = {}
-    folders = os.listdir(path)
-    folders.sort(key=float)
-
-    for folder in folders:
-        fpath = path + folder + "/"
-        print("Actual folder: ",folder)
-        for file in (os.listdir(fpath)):
-            fname = file.split("_")
-            print("   Actual file: ", fname[1])
-
-            data_xls = pd.read_csv(fpath + file,index_col=None, header=0)
-            if fname[1] not in total:
-                total[fname[1]] = []
-            total[fname[1]].append(data_xls)
-
-    for name, data in total.items():
-        data_final = pd.concat(data)
-        print(">Saving ", name)
-        data_final.to_csv(final_path + name + ".csv", encoding='utf-8',
-                       index=False)
-
-if __name__ == '__main__':
-    #tocsv()
-    totals()
