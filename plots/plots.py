@@ -11,43 +11,52 @@ pf = "Plots"
 
 def yearly():
     in_path = settings.year_path
-    pp = os.path.join(in_path, pf) #Path for Plots folder
+    plot_folder = settings.plot_path #Path for Plots folder
+    year_plots_folder = os.path.join(plot_folder, "Year")
 
-    if pf not in os.listdir(in_path):
-        os.mkdir(pp)
+    if not os.path.isdir(plot_folder):
+        os.mkdir(plot_folder)
+        print("[FOLDER] <Plots> folder created in root project path")
+
+    if not os.path.isdir(year_plots_folder):
+        os.mkdir(year_plots_folder)
+        print("[FOLDER] <Year> folder created in <Plots> folder")
+
+
 
     buildings = filter(lambda b: ".csv" in b, os.listdir(in_path))
 
     for building in buildings:
         name = building.split(".")[0]
+        path = os.path.join(year_plots_folder, name)  # Folder in Plots/Year/"
+
+        if not os.path.isdir(path):  # Folder for plots of the building
+            os.mkdir(path)
         building_data = pd.read_csv(os.path.join(in_path, building),
                                     index_col=None, header=0)
-        headers = list(building_data)
 
-        path = os.path.join(pp,name)
-        if name not in os.listdir(pp):
-            os.mkdir(path)
+        plot_year(name, building_data, path)
+        #Create plots for each variable in the building
 
-        for col in headers[1:]:
-            try:
-                data_plot = building_data[col]
-                plt.figure()
-                plt.title(' '.join((name, col)))
-                plt.xlabel("Date")
-                plt.ylabel(col)
-                plt.plot(range(len(data_plot)), data_plot)
-                #plt.boxplot(data_plot)
 
-                print("[PLOT] Saving", name, col)
-
-                filename = '_'.join((name, col))
-                plt.savefig(os.path.join(path, filename))
-                plt.close()
-            except:
-                print("[ERROR] FILE: ",name)
-
-def plot_year(b_data):
+def plot_year(name, b_data, save_path):
     headers = list(b_data)
+    for col in headers[1:]:
+        try:
+            data_plot = b_data[col]
+            plt.figure()
+            plt.title(' '.join((name, col)))
+            plt.xlabel("Date")
+            plt.ylabel(col)
+            plt.plot(range(len(data_plot)), data_plot)
+
+            print("[PLOT] Saving", name, col)
+
+            filename = '_'.join((name, col))
+            plt.savefig(os.path.join(save_path, filename))
+            plt.close()
+        except:
+            print("[ERROR] FILE: ", name)
 
 
 def plot_lab():
@@ -144,6 +153,6 @@ def is_outlier(points, thresh=3.5):
 
 
 if __name__ == "__main__":
-    #yearly()
-    cleaning()
+    yearly()
+    #cleaning()
     #plot_lab()

@@ -8,3 +8,6 @@ csv_path = os.path.join(root_path, "DATA_CSV")
 #From monthly csv to total year csv
 month_path = csv_path
 year_path = os.path.join(root_path, "DATA_CSV_TOTAL")
+
+#Plots folder
+plot_path = os.path.join(root_path, "Plots")
