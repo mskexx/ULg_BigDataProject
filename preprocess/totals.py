@@ -1,7 +1,9 @@
 import os
 import pandas as pd
-
-def totals(in_path, out_path):
+import settings
+def totals():
+    in_path = settings.month_path
+    out_path = settings.year_path
     """
     Create the total grouped by building from a folder monthly structure
     :param in_path: Input folder of the data in .csv

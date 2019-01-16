@@ -12,8 +12,18 @@ Initial data consisted in the energetic values generated in the University in
  the range between January and October in 2018.
  
 ## Pre-processing
+In order to do the pre-processing correctly, we have to introduce the concept
+ of Input and Output path for each task in this section.
 ##### \> From .xls to .csv
+**Input path:** Folder where .xls are stored in a monthly folder structure (1 
+folder per month and inside files .xls of that month)
+    
+**Ouput path:** Folder where .csv will be stored with the same folder 
+structure as the input (1 folder per month)
+
+
 ##### \> Group total consumption per building
+##### \> Plots of the year
 ## Initial analysis
 ## Computing
 ## Analysis

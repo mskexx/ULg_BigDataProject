@@ -5,11 +5,14 @@ Transformation module, process to make the initial changes:
 """
 import pandas as pd
 import os
+import settings
 from threading import Thread
 
 N_THREADS = 8
 
-def transformation(path, output):
+def transformation():
+    path = settings.xls_path
+    output = settings.csv_path
     """
     First divide the folders into multiple chunks, then make multi-threading to
     speed up the transformation from .xls to .csv
