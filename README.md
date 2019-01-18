@@ -1,6 +1,16 @@
 # Big data project - University of Liege
 In this project we were asked to answer if the University of liege
 is a good example in terms of electrical consumption.
+
+##Contents
+- [Data](#data)
+- [Pre-processing](#pre-processing)
+- [First analysis](#initial-analysis)
+- [Computing](#computing)
+- [Analysis](#analysis)
+
+
+
 ## Data
 ### Electrical consumption data
 To answer that questions a dataset about the consumption in the university is
@@ -13,8 +23,16 @@ Initial data consisted in the energetic values generated in the University in
 the range between January and October in 2018.
  
 ### Weather data
+###### To do:
+- Access the data
+- Use of the data
 
 ### Buildings specs data
+###### To do:
+- Clean data
+- Transform data
+- Use of the data
+
  <!-- ---------------------------------------------------------- -->
 
 ## Pre-processing
