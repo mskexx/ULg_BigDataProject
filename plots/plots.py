@@ -9,7 +9,13 @@ import settings
 MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aut','Sep','Oct','Nov','Dec']
 pf = "Plots"
 
-def yearly():
+
+def yearly(buildings=None):
+    """
+
+    :param buildings: If we only want to plot some Building
+    :return: None
+    """
     in_path = settings.year_path
     plot_folder = settings.plot_path #Path for Plots folder
     year_plots_folder = os.path.join(plot_folder, "Year")
@@ -23,8 +29,8 @@ def yearly():
         print("[FOLDER] <Year> folder created in <Plots> folder")
 
 
-
-    buildings = filter(lambda b: ".csv" in b, os.listdir(in_path))
+    if not buildings:
+        buildings = filter(lambda b: ".csv" in b, os.listdir(in_path))
 
     for building in buildings:
         name = building.split(".")[0]
@@ -37,7 +43,7 @@ def yearly():
 
         plot_year(name, building_data, path)
         #Create plots for each variable in the building
-
+    return 0
 
 def plot_year(name, b_data, save_path):
     headers = list(b_data)
