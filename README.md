@@ -2,7 +2,7 @@
 In this project we were asked to answer if the University of liege
 is a good example in terms of electrical consumption.
 
-##Contents
+## Contents
 - [Data](#data)
 - [Pre-processing](#pre-processing)
 - [First analysis](#initial-analysis)
