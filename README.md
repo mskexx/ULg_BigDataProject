@@ -19,8 +19,7 @@ you will need data from other sources. In our case the dataset
 was provided by the University.
 
 #### Initial data
-Initial data consisted in the energetic values generated in the University in
-the range between January and October in 2018.
+Initial data consisted in the energetic values generated in the University in 2018 between January and October.
  
 ### Weather data
 ###### To do:
